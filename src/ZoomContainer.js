@@ -183,7 +183,7 @@ export default class ZoomContainer {
     if (this._scrollBehavior === 'pan') {
       // Add the wheel listener
       const wheelFn = (e) => {
-        const ev = e.sourceEvent
+        const ev = e
         const sensitivity = 0.5
         // stop scroll in parent elements
         ev.stopPropagation()

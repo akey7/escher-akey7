@@ -521,7 +521,7 @@ export default class Behavior {
       this.dragging = onOff
     }
 
-    behavior.on('start', function (e) {
+    behavior.on('start.combine', function (e) {
       setDragging(true)
 
       // silence other listeners (e.g. nodes BELOW this one)
@@ -558,7 +558,7 @@ export default class Behavior {
     })
 
     let lastX, lastY
-    behavior.on('start', (e) => {
+    behavior.on('start.track', (e) => {
       lastX = e.x
       lastY = e.y
     }).on('drag', function (e, d) {
