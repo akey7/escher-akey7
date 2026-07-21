@@ -84,6 +84,6 @@
   the merge ran end-to-end. No new console errors from the drag/merge
   itself (pre-existing unrelated "Bad scale value" errors appear on
   every page load regardless, not investigated, out of scope).
-- STILL NEEDED: user's own manual test in the browser (visual
-  confirmation + undo/redo behavior + full 127-reaction model) — not
-  yet done as of this log entry.
+- USER CONFIRMED (manual test): drag-merge works, undo works, PNG and
+  SVG export both work. User has manually committed the fix. Both the
+  wheelFn crash and the drag-merge bug are considered CLOSED.
