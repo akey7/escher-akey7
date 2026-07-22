@@ -44,27 +44,6 @@ at the Technical University of Denmark (NNF10CC1016517)
 
 # Building and testing Escher
 
-## Bugs noted and to fix
-
-- **Zoom/pan crash on load** (`src/ZoomContainer.js`, `wheelFn`): threw
-  `TypeError: Cannot read properties of undefined (reading
-  'stopPropagation')` on mouse-wheel scroll. The handler read
-  `e.sourceEvent`, which only exists on events dispatched through a
-  d3-zoom behavior — but these listeners are bound directly via plain
-  d3-selection `.on()` calls, so `e` is already the native event.
-  Fixed by using `e` directly. (Fixed.)
-
-- **Drag-merge of metabolite nodes silently does nothing**
-  (`src/Behavior.js`, `getSelectableDrag`): dragging one metabolite
-  node onto another with the same `bigg_id` did not merge them, with
-  no error. Two separate `behavior.on('start', ...)` handlers were
-  registered on the same d3-drag behavior using the same
-  un-namespaced event name; d3's dispatcher only keeps one callback
-  per bare type, so the second registration silently overwrote the
-  first — the handler responsible for flagging a valid merge target
-  never ran. Fixed by namespacing the two handlers (`start.combine` /
-  `start.track`) so both fire. (Fixed.)
-
 ## JavaScript
 
 First, install dependencies with [npm](https://www.npmjs.com) (or you can use
